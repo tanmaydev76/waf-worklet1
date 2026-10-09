@@ -1,0 +1,15 @@
+# id     category        severity  pattern
+SQL-01   SQLI            HIGH      union\s+(all\s+)?select\W
+SQL-02   SQLI            HIGH      '\s*(or|and)\s+'?\d+'?\s*=\s*'?\d+
+SQL-03   SQLI            MEDIUM    '\s*(--|#)
+SQL-04   SQLI            HIGH      ;\s*(drop|delete|truncate|alter)\s+(table|database|from)
+SQL-05   SQLI            MEDIUM    (sleep|benchmark|pg_sleep)\s*\(\s*\d
+SQL-06   SQLI            HIGH      information_schema
+XSS-01   XSS             HIGH      <script[\s>/]
+XSS-02   XSS             HIGH      javascript\s*:
+XSS-03   XSS             HIGH      [\s"'/]on(error|load|click|mouseover|focus|submit)\s*=
+XSS-04   XSS             HIGH      <(iframe|object|embed)[\s>/]
+XSS-05   XSS             MEDIUM    document\.(cookie|domain)
+PT-01    PATH_TRAVERSAL  HIGH      \.\.[/\\]
+PT-02    PATH_TRAVERSAL  HIGH      /etc/(passwd|shadow|hosts)
+PT-03    PATH_TRAVERSAL  HIGH      (boot|win)\.ini
