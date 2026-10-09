@@ -97,6 +97,20 @@ public final class Dfa {
     }
 
     /**
+     * Returns the (sorted, deduplicated) labels of a state. Package-private:
+     * used by {@code HopcroftMinimizer} to group states by label when
+     * forming the initial partition (states with different labels can never
+     * be equivalent, since they report different rules), and to copy a
+     * block's label set into the rebuilt minimized DFA.
+     *
+     * @param state the state to query
+     * @return that state's labels; empty if non-accepting
+     */
+    int[] labelsOf(int state) {
+        return labels[state];
+    }
+
+    /**
      * Looks up the single next state for one byte. O(1).
      *
      * @param state the current state
